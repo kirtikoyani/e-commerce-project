@@ -9,7 +9,8 @@
     "test": "jest",
     "test-watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
-    "cluster": "pm2 start src/server.ts -i max"
+    "cluster": "pm2 start src/server.ts -i max",
+    "server:start":"node ./dist/server.js"
   },
   "author": "hax2k",
   "license": "ISC",
