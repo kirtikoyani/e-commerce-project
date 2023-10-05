@@ -36,7 +36,7 @@ const productDetails = new mongoose.Schema({
     type: String,
   },
   size:{
-    type: String,
+    type: [String],
   },
   color:{
     type: String,
