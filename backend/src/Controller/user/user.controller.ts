@@ -3,7 +3,7 @@ import * as userService from "../../services/user.services";
 
 export async function getAllUsers(req: Request, res: Response) {
   try {
-    const usersData = await userService.AllUsersData();
+    const usersData = await userService.getAllUsers();
     res.status(200).json(usersData);
   } catch (error) {
     res.status(400).json({ error: error });
@@ -13,7 +13,7 @@ export async function getAllUsers(req: Request, res: Response) {
 export async function getUserById(req: Request, res: Response) {
   try {
     const { id } = req.params;
-    const userData = await userService.UserDataById(id);
+    const userData = await userService.getUserById(id);
 
     if (!userData) {
       return res.status(404).json({ error: "User not found" });
@@ -25,10 +25,10 @@ export async function getUserById(req: Request, res: Response) {
   }
 }
 
-export async function postUser(req: Request, res: Response) {
+export async function addUser(req: Request, res: Response) {
   try {
     const userData = req.body;
-    const createUser = await userService.signUpUser(userData);
+    const createUser = await userService.addUser(userData);
     res.status(201).json(createUser);
   } catch (error) {
     res.status(400).json({ error: error });
@@ -38,14 +38,14 @@ export async function postUser(req: Request, res: Response) {
 export async function loginUser(req: Request, res: Response) {
   try {
     const { email, password } = req.body;
-    const token = await userService.signInUser(email, password);
+    const token = await userService.loginUser(email, password);
     res.status(200).json({ token });
   } catch (error) {
     res.status(401).json({ error: error });
   }
 }
 
-export async function putUser(req: Request, res: Response) {
+export async function updateUser(req: Request, res: Response) {
   try {
     const { id } = req.params;
     const userData = req.body;
