@@ -1,10 +1,10 @@
 const Product = require("../Models/productSchema");
 import { Product } from "../Interface/product";
 
-export const allProductData = async (): Promise<Product> =>
+export const getAllProduct = async (): Promise<Product> =>
   await Product.find();
 
-export const ProductDataById = async (id: string): Promise<Product> =>
+export const getProductById = async (id: string): Promise<Product> =>
   await Product.findById(id);
 
 export const createProduct = async (data: Product): Promise<Product> => {

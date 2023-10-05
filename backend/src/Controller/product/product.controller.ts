@@ -3,7 +3,7 @@ import * as productService from "../../services/product.services";
 
 export const getAllProduct = async (req: Request, res: Response) => {
   try {
-    const productsData = await productService.allProductData();
+    const productsData = await productService.getAllProduct();
     res.status(200).json(productsData);
   } catch (error) {
     res.status(400).json(error);
@@ -13,7 +13,7 @@ export const getAllProduct = async (req: Request, res: Response) => {
 export const getProductById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-    const productData = await productService.ProductDataById(id);
+    const productData = await productService.getProductById(id);
     if (!productData) {
       return res.status(404).json({ error: "Product not found" });
     }
@@ -23,7 +23,7 @@ export const getProductById = async (req: Request, res: Response) => {
   }
 };
 
-export const postProduct = async (req: Request, res: Response) => {
+export const createProduct = async (req: Request, res: Response) => {
   try {
     const product = req.body;
     const createProduct = await productService.createProduct(product);
@@ -33,7 +33,7 @@ export const postProduct = async (req: Request, res: Response) => {
   }
 };
 
-export const putProduct = async (req: Request, res: Response) => {
+export const updateProduct = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const productData = req.body;
