@@ -35,6 +35,12 @@ const productDetails = new mongoose.Schema({
   images: {
     type: String,
   },
+  size:{
+    type: String,
+  },
+  color:{
+    type: String,
+  }
 });
 
 const Product = new mongoose.model("Product", productDetails);
