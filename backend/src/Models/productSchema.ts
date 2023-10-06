@@ -40,6 +40,9 @@ const productDetails = new mongoose.Schema({
   },
   color:{
     type: String,
+  },
+  quantity:{
+    type: Number,
   }
 });
 
