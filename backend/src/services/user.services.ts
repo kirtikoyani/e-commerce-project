@@ -24,7 +24,7 @@ export const loginUser = async (
 
   if (user && (await bcrypt.compare(password, user.password))) {
     return jwt.sign({ userId: user._id }, JWT_SECRET, {
-      expiresIn: "0.5h",
+      expiresIn: "24h",
     });
   }
 
